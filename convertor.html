@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+  margin-top:70px;
+  background:#333;
+  color:#fff;
+}
+    </style>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+            <form>
+              <div class="form-group">
+                <input id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Enter Pounds...">
+              </div>
+            </form>
+            <div id="output">
+              <div class="card card-primary mb-2">
+                <div class="card-block">
+                  <h4>Grams:</h4>
+                  <div id="gramsOutput"></div>
+                </div>
+              </div>
+      
+              <div class="card card-success mb-2">
+                <div class="card-block">
+                  <h4>Kilograms:</h4>
+                  <div id="kgOutput"></div>
+                </div>
+              </div>
+      
+              <div class="card card-danger mb-2">
+                <div class="card-block">
+                  <h4>Ounces:</h4>
+                  <div id="ozOutput"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+let userInput = document.getElementById("lbsInput");
+let lbs = userInput.value;
+let gramOutput = document.getElementById("gramsOutput")
+let kgOutput = document.getElementById("kgOutput")
+let ozOutput = document.getElementById("ozOutput")
+var cardOne = document.getElementsByClassName("card card-primary")[0];
+var cardTwo = document.getElementsByClassName("card card-success")[0];
+var cardThree = document.getElementsByClassName("card card-danger")[0];
+userInput.addEventListener("input", convert,false);
+function convert (){
+   gramOutput.innerHTML = userInput.value * 453.59237;
+   cardOne.style.backgroundColor = "red";
+   kgOutput.innerHTML = userInput.value * 1000;
+   cardTwo.style.backgroundColor = "green";
+   ozOutput.innerHTML = userInput.value * 28.3495231;
+   cardThree.style.backgroundColor = "blue";
+}
+      </script>
+</body>
+</html>
